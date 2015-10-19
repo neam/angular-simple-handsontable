@@ -1,0 +1,14 @@
+{
+  "name": "angular-simple-handsontable",
+  "version": "0.1.0",
+  "main": "angular-simple-handsontable.js",
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "~1.4.0"
+  },
+  "devDependencies": {
+  }
+}
