@@ -39,7 +39,8 @@ module.directive('simpleHandsontable', ['simpleHandsontableFactory', '$parse', '
             restrict: 'EA',
             scope: {
                 settings: '=',
-                data: '='
+                data: '=',
+                deepWatch: '@'
             },
             controller: ['$scope', function ($scope) {
             }],
@@ -89,13 +90,22 @@ module.directive('simpleHandsontable', ['simpleHandsontableFactory', '$parse', '
                  * If so, run render() on the handsontable instance
                  * http://docs.handsontable.com/0.19.0/tutorial-data-binding.html
                  */
-                scope.$parent.$watch(
-                    attrs.data,
-                    function () {
-                        scope.handsontableInstance.render();
-                    },
-                    true
-                );
+                if (attrs.deepWatch) {
+                    scope.$parent.$watch(
+                        attrs.data,
+                        function () {
+                            scope.handsontableInstance.render();
+                        },
+                        true
+                    );
+                } else {
+                    scope.$parent.$watchCollection(
+                        attrs.data,
+                        function () {
+                            scope.handsontableInstance.render();
+                        }
+                    );
+                }
 
                 /**
                  * Make sure changes made within the handsontable are advocated to angular scopes
