@@ -89,8 +89,10 @@ module.directive('simpleHandsontable', ['simpleHandsontableFactory', '$parse', '
                  * Check if data has been changed in parent scope.
                  * If so, run render() on the handsontable instance
                  * http://docs.handsontable.com/0.19.0/tutorial-data-binding.html
+                 * Defaults to use a deep watch, which can be disabled
+                 * (for performance reasons) by setting deep-watch="false"
                  */
-                if (attrs.deepWatch) {
+                if (typeof attrs.deepWatch === 'undefined' || attrs.deepWatch) {
                     scope.$parent.$watch(
                         attrs.data,
                         function () {
