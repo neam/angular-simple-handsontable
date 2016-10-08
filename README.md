@@ -6,7 +6,7 @@ The goal of this project is to provide a simple wrapper as possible to be able t
 
 This means a less declarative, but cleaner, handsontable angular integration than current alternatives.  
 
-Usage example and demo: [http://jsbin.com/vareba/edit?html,js,output]()
+Usage example and demo: [http://jsbin.com/vareba/edit?html,js,output](http://jsbin.com/vareba/edit?html,js,output)
 
 ## License 
 
