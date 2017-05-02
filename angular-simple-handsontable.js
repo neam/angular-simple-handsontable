@@ -96,7 +96,9 @@ module.directive('simpleHandsontable', ['simpleHandsontableFactory', '$parse', '
                     scope.$parent.$watch(
                         attrs.data,
                         function () {
-                            scope.handsontableInstance.render();
+                            $timeout(function () {
+                                scope.handsontableInstance.render();
+                            });
                         },
                         true
                     );
@@ -104,7 +106,9 @@ module.directive('simpleHandsontable', ['simpleHandsontableFactory', '$parse', '
                     scope.$parent.$watchCollection(
                         attrs.data,
                         function () {
-                            scope.handsontableInstance.render();
+                            $timeout(function () {
+                                scope.handsontableInstance.render();
+                            });
                         }
                     );
                 }
